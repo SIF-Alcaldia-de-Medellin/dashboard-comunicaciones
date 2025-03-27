@@ -1,0 +1,153 @@
+/* 🌍 Base */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f9f9f9;
+    text-align: center;
+  }
+  
+  /* 🎯 NUEVO: Grid general del dashboard basado en el layout propuesto */
+  .dashboard-container {
+    display: grid;
+    grid-template-areas:
+      "header header"
+      "paneles filtro"
+      "map summary"
+      "charts charts";
+    grid-template-columns: 3fr 1fr;
+    gap: 20px;
+    padding: 20px;
+  }
+  
+  /* 📱 Responsive para móviles */
+  @media (max-width: 900px) {
+    .dashboard-container {
+      grid-template-areas:
+        "header"
+        "paneles"
+        "filtro"
+        "map"
+        "summary"
+        "charts";
+      grid-template-columns: 1fr;
+    }
+  }
+  
+  /* ✅ Áreas individuales asignadas */
+  .header-container {
+    grid-area: header;
+    background-color: #1a1a1a;
+    color: white;
+    padding: 20px;
+    font-size: 24px;
+    font-weight: bold;
+    border: 2px solid #ccc;
+    border-radius: 5px;
+  }
+  
+  .paneles-container {
+    grid-area: paneles;
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    gap: 15px;
+    border: 2px solid #ccc;
+    border-radius: 5px;
+    padding: 10px;
+    background-color: #fafafa;
+  }
+  
+  .panel-card {
+    background-color: #f0f0f0;
+    padding: 10px;
+    flex: 1;
+    min-width: 100px;
+    text-align: center;
+    border-radius: 8px;
+    box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.1);
+  }
+  
+  .filtro-container {
+    grid-area: filtro;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    border: 2px solid #ccc;
+    border-radius: 5px;
+    padding: 10px;
+  }
+  
+  .map-container {
+    grid-area: map;
+    height: 400px;
+    border: 2px solid #ccc;
+    border-radius: 5px;
+    overflow: hidden;
+  }
+  
+  .summary-container {
+    grid-area: summary;
+    text-align: left;
+    font-size: 14px;
+    padding: 15px;
+    border: 2px solid #ccc;
+    border-radius: 5px;
+    background-color: #fafafa;
+  }
+  
+  .chart-container {
+    grid-area: charts;
+    display: flex;
+    justify-content: space-around;
+    gap: 15px;
+    border: 2px solid #ccc;
+    border-radius: 5px;
+    padding: 10px;
+    flex-wrap: wrap;
+  }
+  
+  .chart-item {
+    flex: 1;
+    min-width: 300px;
+    max-width: 100%;
+  }
+  
+  /* 💡 Oscuro */
+  .dark {
+    background-color: #1e1e1e;
+    color: #f0f0f0;
+  }
+  
+  .dark .header-container {
+    background-color: #333;
+  }
+  
+  .dark .panel-card,
+  .dark .summary-container,
+  .dark .filtro-container {
+    background-color: #2e2e2e;
+    border-color: #444;
+  }
+  
+  .modo-btn {
+    margin-left: 20px;
+    padding: 8px 14px;
+    font-size: 14px;
+    background-color: #007bff;
+    border: none;
+    border-radius: 5px;
+    color: white;
+    cursor: pointer;
+  }
+  
+  /* 🧩 Estilo para cada gráfico individual (Radar, Histograma, Treemap) */
+.chart-item {
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 15px;
+    margin: 10px 0;
+    background-color: #fff;
+  }
+  
