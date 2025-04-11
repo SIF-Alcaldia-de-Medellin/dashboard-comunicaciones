@@ -1,71 +1,153 @@
-
+@import url('https://fonts.googleapis.com/css2?family=Work+Sans:ital,wght@0,100..900;1,100..900&display=swap');
 @import "tailwindcss";
 
-:root {
-  font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
-  line-height: 1.5;
-  font-weight: 400;
-
-  color-scheme: light dark;
-  color: rgba(255, 255, 255, 0.87);
-  background-color: #242424;
-
-  font-synthesis: none;
-  text-rendering: optimizeLegibility;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+@theme {
+  /* Background */
+  --color-color-dark-blue: #003C53;
+  --color-font-color-bg: #0A4057;
+  /* Purple */
+  --color-purple-50: #f3ddef;
+  --color-purple-100: #e7bcde;
+  --color-purple-200: #db9ace;
+  --color-purple-300: #cf78bd;
+  --color-purple-400: #c357ad;
+  --color-purple-500: #AE3E97;
+  --color-purple-600: #91347e;
+  --color-purple-700: #742965;
+  --color-purple-800: #571f4b;
+  --color-purple-900: #3a1532;
+  --color-purple-950: #1d0a19;
+  /* Orange */
+  --color-orange-50: #ffebd5;
+  --color-orange-100: #ffd6ab;
+  --color-orange-200: #ffc281;
+  --color-orange-300: #ffad57;
+  --color-orange-400: #ff992d;
+  --color-orange-500: #FF8403;
+  --color-orange-600: #d76e00;
+  --color-orange-700: #ac5800;
+  --color-orange-800: #814200;
+  --color-orange-900: #562c00;
+  --color-orange-950: #2b1600;
+  /* Green */
+  --color-green-50: #c2ffe2;
+  --color-green-100: #85ffc5;
+  --color-green-200: #48ffa9;
+  --color-green-300: #0bff8c;
+  --color-green-400: #00cd6c;
+  --color-green-500: #00904C;
+  --color-green-600: #00783f;
+  --color-green-700: #006033;
+  --color-green-800: #004826;
+  --color-green-900: #003019;
+  --color-green-950: #00180d;
+  /* Blue Sky */
+  --color-blue-sky-50: #d2f3ff;
+  --color-blue-sky-100: #a5e6ff;
+  --color-blue-sky-200: #78daff;
+  --color-blue-sky-300: #4aceff;
+  --color-blue-sky-400: #1dc2ff;
+  --color-blue-sky-500: #00AEEF;
+  --color-blue-sky-600: #0091c7;
+  --color-blue-sky-700: #00749f;
+  --color-blue-sky-800: #005778;
+  --color-blue-sky-900: #003a50;
+  --color-blue-sky-950: #001d28;
+  /* Blue */
+  --color-blue-50: #dde6f7;
+  --color-blue-100: #bbccee;
+  --color-blue-200: #99b2e6;
+  --color-blue-300: #7799dd;
+  --color-blue-400: #557fd5;
+  --color-blue-500: #3366CC;
+  --color-blue-600: #2a55aa;
+  --color-blue-700: #224488;
+  --color-blue-800: #193366;
+  --color-blue-900: #112244;
+  --color-blue-950: #081122;
+  /* Dark Blue */
+  --color-dark-blue-50: #c0e2ff;
+  --color-dark-blue-100: #81c6ff;
+  --color-dark-blue-200: #42a9ff;
+  --color-dark-blue-300: #038cff;
+  --color-dark-blue-400: #006ac3;
+  --color-dark-blue-500: #004884;
+  --color-dark-blue-600: #003c6e;
+  --color-dark-blue-700: #003058;
+  --color-dark-blue-800: #002442;
+  --color-dark-blue-900: #00182c;
+  --color-dark-blue-950: #000c16;
+  /* Red */
+  --color-red-50: #ffd3d3;
+  --color-red-100: #ffa8a8;
+  --color-red-200: #ff7c7c;
+  --color-red-300: #ff5050;
+  --color-red-400: #ff2525;
+  --color-red-500: #F80000;
+  --color-red-600: #cf0000;
+  --color-red-700: #a50000;
+  --color-red-800: #7c0000;
+  --color-red-900: #530000;
+  --color-red-950: #290000;
+  /* Gray */
+  --color-gray-50: #ededed;
+  --color-gray-100: #dadada;
+  --color-gray-200: #c8c8c8;
+  --color-gray-300: #b5b5b5;
+  --color-gray-400: #a3a3a3;
+  --color-gray-500: #909090;
+  --color-gray-600: #787878;
+  --color-gray-700: #606060;
+  --color-gray-800: #484848;
+  --color-gray-900: #303030;
+  --color-gray-950: #181818;
 }
 
-a {
-  font-weight: 500;
-  color: #646cff;
-  text-decoration: inherit;
-}
-a:hover {
-  color: #535bf2;
+*{
+  font-family: "Work Sans", sans-serif;
 }
 
-body {
-  margin: 0;
-  display: flex;
-  place-items: center;
-  min-width: 320px;
-  min-height: 100vh;
+.display-1{
+  font-size: 95.4px;
 }
 
-h1 {
-  font-size: 3.2em;
-  line-height: 1.1;
+.display-2{
+  font-size: 76.3px;
 }
 
-button {
-  border-radius: 8px;
-  border: 1px solid transparent;
-  padding: 0.6em 1.2em;
-  font-size: 1em;
-  font-weight: 500;
-  font-family: inherit;
-  background-color: #1a1a1a;
-  cursor: pointer;
-  transition: border-color 0.25s;
-}
-button:hover {
-  border-color: #646cff;
-}
-button:focus,
-button:focus-visible {
-  outline: 4px auto -webkit-focus-ring-color;
+.heading-1{
+  font-size: 61px;
 }
 
-@media (prefers-color-scheme: light) {
-  :root {
-    color: #213547;
-    background-color: #ffffff;
-  }
-  a:hover {
-    color: #747bff;
-  }
-  button {
-    background-color: #f9f9f9;
-  }
+.heading-2{
+  font-size: 48.8px;
+}
+
+.heading-3{
+  font-size: 39.1px;
+}
+
+.heading-4{
+  font-size: 31.3px;
+}
+
+.heading-5{
+  font-size: 25px;
+}
+
+.heading-6{
+  font-size: 20px;
+}
+
+.paragraph{
+  font-size: 16px;
+}
+
+.small{
+  font-size: 12.8px;
+}
+
+.bg{
+  background-image: url("./assets/bg.png");
+  background-repeat: repeat;
 }

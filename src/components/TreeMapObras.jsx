@@ -5,16 +5,15 @@ import {
   ResponsiveContainer,
   LabelList
 } from "recharts";
-import "../styles.css";
 
 // 🎨 Diccionario de colores por categoría
 const coloresPorCategoria = {
-  "Cicloparquederos": "#8dd1e1",
-  "Presupuesto Participativo": "#82ca9d",
-  "Vías Urbanas": "#ffc658",
-  "Espacios Públicos y Recreación": "#a4de6c",
-  "Andenes y Pasarelas": "#d0ed57",
-  "Otros": "#d28fd0"
+  "Cicloparquederos": "#AE3E97",
+  "Presupuesto Participativo": "#FF8403",
+  "Vías Urbanas": "#00904C",
+  "Espacios Públicos y Recreación": "#00AEEF",
+  "Andenes y Pasarelas": "#3366CC",
+  "Otros": "#004884"
 };
 
 // 👉 Añadir propiedad "fill" según categoría
@@ -29,7 +28,7 @@ const CustomTooltip = ({ active, payload }) => {
   if (active && payload?.length) {
     const { payload: p } = payload[0];
     return (
-      <div className="custom-tooltip">
+      <div className="bg-white p-2 px-4 rounded">
         <strong>{p.categoria}</strong>
         <br />
         Obras: {p.cantidad}
@@ -39,11 +38,11 @@ const CustomTooltip = ({ active, payload }) => {
   return null;
 };
 
-const TreeMapObras = ({ data }) => {
+const TreeMapObras = ({ data, className }) => {
   const dataConColor = colorearDatos(data);
 
   return (
-    <div className="treemap-container">
+    <div className={`treemap-container ${className}`}>
       <h3>Obras por Categoría (Visual Treemap)</h3>
       <ResponsiveContainer width="100%" height={300}>
         <Treemap
@@ -70,8 +69,8 @@ const TreeMapObras = ({ data }) => {
                   x={x + 5}
                   y={y + 20}
                   fill="#fff"
-                  fontSize={12}
-                  fontWeight="bold"
+                  fontSize={16}
+                  fontWeight="normal"
                 >
                   {name}
                 </text>

@@ -1,25 +1,20 @@
-import React from "react";
-import "../styles.css";
+import Card from "./Card";
+import { faBuildingCircleCheck, faBuildingCircleExclamation, faBuildingCircleXmark, faPenRuler, faPersonDigging } from "@fortawesome/free-solid-svg-icons";
 
-const Paneles = () => {
+const Paneles = ({data}) => {
+  const dataByEstado = data.reduce((acc, obra) => {
+    const estado = obra.properties["Estado del Proyecto"];
+    acc[estado] = (acc[estado] || 0) + 1;
+    return acc;
+  }, {});
+
   return (
-    <div className="paneles-container">
-      <div className="panel-card">
-        <h4>Obras Totales</h4>
-        <p>10</p>
-      </div>
-      <div className="panel-card">
-        <h4>En Ejecución</h4>
-        <p>5</p>
-      </div>
-      <div className="panel-card">
-        <h4>Proyectadas</h4>
-        <p>3</p>
-      </div>
-      <div className="panel-card">
-        <h4>Finalizadas</h4>
-        <p>2</p>
-      </div>
+    <div className="flex justify-between gap-[20px]">
+      <Card className="bg-dark-blue-400 w-1/5" icon={faPersonDigging} title="Total Obras" kpi={data.length || 0} />
+      <Card className="bg-orange-500 w-1/5" icon={faBuildingCircleExclamation} title="En Ejecución" kpi={dataByEstado["En Ejecucion"] || 0} />
+      <Card className="bg-blue-sky-500 w-1/5" icon={faPenRuler} title="Proyectadas" kpi={dataByEstado["Proyectado"] || 0}/>
+      <Card className="bg-red-500 w-1/5" icon={faBuildingCircleXmark} title="Suspendido" kpi={dataByEstado["Suspendido"] || 0} />
+      <Card className="bg-green-500 w-1/5" icon={faBuildingCircleCheck} title="Finalizadas" kpi={dataByEstado["Ejecutado"] || 0} />
     </div>
   );
 };
