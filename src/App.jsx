@@ -65,36 +65,37 @@ const App = () => {
   return (
     <ModalContext.Provider value={{isModalOpen: isModalOpen, openModal: openModal}}>
       <FilterContext.Provider value={{filters, setFilter, setFilters}}>
-        <div className="bg" onClick={closeModal}>
-          <main className="relative p-[20px] flex flex-col gap-[20px]">
+        <div className="bg min-w-screen min-h-screen" onClick={closeModal}>
+          <main className="relative flex flex-col p-[20px] gap-[10px] xl:gap-[20px]">
             <Header title="Dashboard de Obras" />
-            <div className="flex flex-col bg-white rounded-2xl p-[20px] gap-[20px]">
+            <div className="flex flex-col bg-white rounded-2xl p-[20px] gap-[10px] lg:gap-[20px]">
               <Suspense fallback={<SkeletonPaneles />}>
                 <Paneles data={obrasFiltradas} />
               </Suspense>
-              <div className="flex gap-[20px]">
-                <Suspense fallback={<SkeletonMap className="min-w-[calc(3/5*100%+40px)]"/>}>
-                  <MapaObras data={obrasFiltradas} className="w-[calc(3/5*100%+40px)]"/>
-                </Suspense>
-                <Suspense fallback={<SkeletonSummary className="w-[calc(2/5*100%+20px)]"/>}>
-                  <Summary data={obrasFiltradas} className="w-[calc(2/5*100%+20px)]"/>
-                </Suspense>
-              </div>
             </div>
-              <div className="flex gap-[20px]">
-                <Suspense fallback={<div className="w-1/2 rounded-2xl bg-white animate-pulse h-[353.5px]"></div>}>
-                  <div className="w-1/2 p-2 px-4 rounded-2xl bg-white">
-                    <h3 className="font-bold heading-5 text-center">Histograma por comuna</h3>
-                    <HistogramaComuna data={obrasFiltradas} />
-                  </div>
-                </Suspense>
-                <Suspense fallback={<div className="w-1/2 rounded-2xl bg-white animate-pulse h-[353.5px]"></div>}>
-                  <div className="w-1/2 p-2 px-4 rounded-2xl bg-white">
-                    <h3 className="font-bold heading-5 text-center">Distribución por categoria de proyecto</h3>
-                    <PieChartObras data={obrasFiltradas}/>
-                  </div>
-                </Suspense>
-              </div>
+            <div className="bg-white p-[20px] flex flex-wrap rounded-2xl gap-[10px] lg:flex-nowrap lg:gap-[20px]">
+              <Suspense fallback={<SkeletonMap className="w-full lg:min-w-[calc(3/5*100%+40px)]"/>}>
+                <MapaObras data={obrasFiltradas} className="w-full lg:w-[calc(3/5*100%+40px)]"/>
+              </Suspense>
+              <Suspense fallback={<SkeletonSummary className="w-full lg:w-[calc(2/5*100%+20px)]"/>}>
+                <Summary data={obrasFiltradas} className="w-full lg:w-[calc(2/5*100%+20px)]"/>
+              </Suspense>
+            </div>
+            
+            <div className="flex flex-col gap-[20px] lg:flex-row">
+              <Suspense fallback={<div className="w-full lg:w-1/2 rounded-2xl bg-white animate-pulse h-[353.5px]"></div>}>
+                <div className="w-full lg:w-1/2 p-2 px-4 rounded-2xl bg-white">
+                  <h3 className="font-bold heading-5 text-center">Histograma por comuna</h3>
+                  <HistogramaComuna data={obrasFiltradas} />
+                </div>
+              </Suspense>
+              <Suspense fallback={<div className="w-full lg:w-1/2 rounded-2xl bg-white animate-pulse h-[353.5px]"></div>}>
+                <div className="w-full lg:w-1/2 p-2 px-4 rounded-2xl bg-white">
+                  <h3 className="font-bold heading-5 text-center">Distribución por categoria de proyecto</h3>
+                  <PieChartObras data={obrasFiltradas}/>
+                </div>
+              </Suspense>
+            </div>
             <Suspense fallback={<SkeletonFilterButton />}>
               <FilterButton />
             </Suspense>
