@@ -1,4 +1,4 @@
-import {useMemo} from 'react';
+import {useMemo, useState, useEffect} from 'react';
 import { PieChart, Pie, Cell, ResponsiveContainer, Legend } from 'recharts';
 
 const COLORS = {
@@ -9,6 +9,18 @@ const COLORS = {
 };
 
 const PieChartObras = ({data}) => {
+    const [isMobile, setIsMobile] = useState(false);
+
+    useEffect(() => {
+        const handleResize = () => {
+            setIsMobile(window.innerWidth < 768); // consider <768px as mobile
+        };
+
+        handleResize(); // initial check
+        window.addEventListener('resize', handleResize);
+        return () => window.removeEventListener('resize', handleResize);
+    }, []);
+
     const dataChart = useMemo(() => {
         const counts = data.reduce((acc, obra) => {
           const categoria = obra.properties?.Categoria;
@@ -39,7 +51,11 @@ const PieChartObras = ({data}) => {
                         <Cell key={`cell-${index}`} fill={COLORS[entry?.name]} />
                     ))}
                 </Pie>
-                <Legend layout="vertical" verticalAlign="middle" align="right"/>
+                <Legend 
+                    layout={isMobile ? "horizontal" : "vertical"}
+                    verticalAlign={isMobile ? "top" : "middle"}
+                    align={isMobile ? "center" : "right"}
+                />
             </PieChart>
         </ResponsiveContainer>
     );

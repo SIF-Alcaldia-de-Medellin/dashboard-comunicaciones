@@ -65,7 +65,7 @@ const App = () => {
   return (
     <ModalContext.Provider value={{isModalOpen: isModalOpen, openModal: openModal}}>
       <FilterContext.Provider value={{filters, setFilter, setFilters}}>
-        <div className="bg min-w-screen min-h-screen" onClick={closeModal}>
+        <div className="bg max-w-screen min-h-screen" onClick={closeModal}>
           <main className="relative flex flex-col p-[20px] gap-[10px] xl:gap-[20px]">
             <Header title="Dashboard de Obras" />
             <div className="flex flex-col bg-white rounded-2xl p-[20px] gap-[10px] lg:gap-[20px]">
