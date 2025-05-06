@@ -199,3 +199,41 @@
     font-size: 66.8px;
   }
 }
+
+@media (width <= 40rem){
+  .display-1{
+    font-size: 53.4px;
+  }
+
+  .display-2{
+    font-size: 42.7px;
+  }
+  
+  .heading-1{
+    font-size: 34.2px;
+  }
+  
+  .heading-2{
+    font-size: 27.3px;
+  }
+  
+  .heading-3{
+    font-size: 21.9px;
+  }
+  
+  .heading-4{
+    font-size: 17.5px;
+  }
+  
+  .heading-5{
+    font-size: 14px;
+  }
+  
+  .heading-6{
+    font-size: 12.5px;
+  }
+
+  .paragraph{
+    font-size: 11.2px;
+  }
+}
